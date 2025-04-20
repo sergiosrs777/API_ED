@@ -1,22 +1,21 @@
-CREATE TABLE books (
+CREATE TABLE Libro (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL,
-    author TEXT NOT NULL,
-    synopsis TEXT,
-    genre TEXT,
+    titulo TEXT NOT NULL,
+    autor TEXT NOT NULL,
+    sinopsis TEXT,
+    genero TEXT,
     rating REAL,
-    link TEXT, 
-    mood_id INTEGER,
-    FOREIGN KEY (mood_id) REFERENCES moods(id)
+    link TEXT 
 );
 
-INSERT INTO books (title, author, synopsis, genre, rating, link, mood_id)
+INSERT INTO Libro (titulo, autor, sinopsis, genero, rating, link)
 VALUES (
     'El Alquimista',
     'Paulo Coelho',
     'Una fábula sobre seguir tus sueños.',
     'Ficción',
     4.7,
-    'https://ejemplo.com/el-alquimista',
-    (SELECT id FROM moods WHERE name = 'motivado')
+    'https://ejemplo.com/el-alquimista'
 );
+
+
