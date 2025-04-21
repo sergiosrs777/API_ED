@@ -27,3 +27,14 @@ def eliminar():
     return {"status": "ok"}
 
 
+@application.route("/agregar", methods=["POST"])
+def insertar():
+    datos = request.form
+    conexion = SQLiteConnection("Database.db")
+    id = datos["id"]
+    titulo = datos["titulo"]
+    autor = datos["autor"]
+    genero = datos["genero"]
+    conexion.execute_query(f"INSERT INTO Libro (nombre, titulo, autor, genero) VALUES ('{id}', '{titulo}', '{autor}', '{genero}')")
+    return {"status": "ok"}
+
