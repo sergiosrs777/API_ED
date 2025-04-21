@@ -22,8 +22,8 @@ def todo():
 @application.route("/eliminar", methods=["POST"])
 def eliminar():
     conexion = SQLiteConnection("Database.db")
-    id = request.json['id']
-    conexion.execute_query("DELETE FROM Libro WHERE id = ? ", (id,))
+    id = request.form['id']
+    conexion.execute_query("DELETE FROM Libro WHERE id = ? ", (id))
     return {"status": "ok"}
 
 
