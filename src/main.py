@@ -23,7 +23,7 @@ def todo():
 def eliminar():
     conexion = SQLiteConnection("Database.db")
     id = request.json['id']
-    conexion.execute_query(f"DELETE FROM Libro WHERE id = {id}")
+    conexion.execute_query("DELETE FROM Libro WHERE id = ? ", (id,))
     return {"status": "ok"}
 
 
@@ -35,6 +35,13 @@ def insertar():
     titulo = datos["titulo"]
     autor = datos["autor"]
     genero = datos["genero"]
-    conexion.execute_query(f"INSERT INTO Libro (nombre, titulo, autor, genero) VALUES ('{id}', '{titulo}', '{autor}', '{genero}')")
+    conexion.execute_query("INSERT INTO Libro (nombre, titulo, autor, genero) VALUES (?, ?, ?, ?)", (id, titulo, autor, genero))
     return {"status": "ok"}
 
+
+@application.route("/argumento", methods=["GET"])
+def argumento():
+    conexion = SQLiteConnection("Database.db")
+    autor = request.args.get('autor')
+    libro = conexion.execute_query("SELECT * FROM Libro WHERE autor = ?", (autor,))
+    return libro[0] if libro else {"status": "error", "message": "Libro no encontrado"}
