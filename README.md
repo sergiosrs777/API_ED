@@ -1,5 +1,19 @@
 # API_ED
 
+ **ALBERTO ROMERAL**
+
+ ### `POST /agregar`
+ Añade un nuevo libro según ciertas características.
+
+ ### `GET /argumento`
+ Busca un libro según una serie de condiciones.
+
+ ### `POST /eliminar`
+ Elimina un libro según su id.
+
+ ### index.html 
+
+
 **SERGIO RODRIGO**
 
 ### `GET /`
@@ -22,7 +36,7 @@ Devuelve **todos los libros** desde la base de datos.
     "mood": "motivado"
   }
 ]
-
+/*
 CREATE TABLE Libro (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo TEXT NOT NULL,
@@ -42,6 +56,7 @@ VALUES (
     4.7,
     'https://ejemplo.com/el-alquimista'
 );
+*/
 
 
-**ALBERTO ROMERAL**
+
